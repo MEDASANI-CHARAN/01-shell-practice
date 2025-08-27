@@ -3,6 +3,8 @@
 TIMESTAMP=$(date)
 echo "Script executed at: $TIMESTAMP"
 
+# we keep the command in $() and will take output as variable
+
 # this is comment
 NUMBER1=100
 NUMBER2=200
