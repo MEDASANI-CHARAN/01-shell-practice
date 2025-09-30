@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "All variables: $@"
-# echo "Number of varibles passed: $#"
+echo "Number of varibles passed: $#"
 # echo "Name of the script: $0"
 # echo "Current working directoty: $PWD"
 # echo "Home directory of current user: $Home"
