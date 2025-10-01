@@ -8,7 +8,7 @@ then
     exit 1 # Give other then 0 upto 127
 else
     echo "You are running with root access"
-fi
+fi 
 
 dnf list installed mysql
 if [ $? -eq 0 ]
