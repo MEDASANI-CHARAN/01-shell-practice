@@ -10,9 +10,9 @@ NUMBER=$1
 # fi 
 
 
-if (( ! $NUMBER > 10 )) # -gt => greater than, -lt => less than, -eq => equal, -ne => not equal
+if (( $NUMBER != 10 )) # -gt => greater than, -lt => less than, -eq => equal, -ne => not equal
 then 
-    echo "Given number $NUMBER is less than 10"
+    echo "Given number $NUMBER is not equal to 10"
 else
-    echo "Given number $NUMBER is greater than 10"
+    echo "Given number $NUMBER is equal to 10"
 fi
