@@ -10,4 +10,13 @@ else
     echo "You are running with root access"
 fi
 
-dnf install mysql -y
+dnf install mysqll -y
+if [ $? -eq 0 ]
+then
+    echo "Installing MySQL is ... SUCCESS"
+else
+    echo "Installing MySQL is ... FAILURE"
+    # exit 1
+fi
+
+dnf install nginxx -y
