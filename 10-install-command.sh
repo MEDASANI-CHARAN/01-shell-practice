@@ -11,20 +11,28 @@ else
 fi
 
 dnf list installed mysql
-if [ $? -eq 0 ]
+if [ $? -ne 0 ]
 then
-    echo "MySQL is not installed... going to install"
+    # echo "MySQL is not installed... going to install"
+    # dnf install mysql -y
+    # if [ $? -eq 0 ]
+    # then
+    #     echo "Installing MySQL is... SUCCESS"
+    # else
+    #     echo "Installing MySQL is... FAILURE"
+    #     exit 1
+    # fi
 else
     echo "MySQL is already installed... SKIPPING"
 fi
 
-dnf install mysql -y
-if [ $? -eq 0 ]
-then
-    echo "Installing MySQL is... SUCCESS"
-else
-    echo "Installing MySQL is... FAILURE"
-    exit 1
-fi
+# dnf install mysql -y
+# if [ $? -eq 0 ]
+# then
+#     echo "Installing MySQL is... SUCCESS"
+# else
+#     echo "Installing MySQL is... FAILURE"
+#     exit 1
+# fi
 
 dnf install nginxx -y
