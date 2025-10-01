@@ -35,4 +35,4 @@ fi
 #     exit 1
 # fi
 
-dnf install nginxx -y
+# dnf install nginxx -y
