@@ -35,4 +35,18 @@ fi
 #     exit 1
 # fi
 
-dnf install nginxx -y
+dnf list installed nginx
+if [ $? -ne 0 ]
+then
+    echo "nginx is not installed... going to install"
+    dnf install nginxx -y
+    if [ $? -eq 0 ]
+    then
+        echo "Installing nginx is... SUCCESS"
+    else
+        echo "Installing nginx is... FAILURE"
+        exit 1
+    fi
+else
+    echo "nginx is already installed... SKIPPING"
+fi
