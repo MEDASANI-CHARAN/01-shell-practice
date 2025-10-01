@@ -10,6 +10,16 @@ else
     echo "You are running with root access"
 fi
 
+VALIDATE(){
+    if [ $1 -eq 0 ]
+    then
+        echo "Installing $2 is... SUCCESS"
+    else
+        echo "Installing $2 is... FAILURE"
+        exit 1
+    fi
+}
+
 # 1. check the package alreay installed or not
 # 2. If the exit status is equal to "0", then skip
 # 3. If the exit status is not equal to "0", then install package
@@ -18,38 +28,17 @@ if [ $? -ne 0 ]
 then
     echo "MySQL is not installed... going to install"
     dnf install mysql -y
-    if [ $? -eq 0 ]
-    then
-        echo "Installing MySQL is... SUCCESS"
-    else
-        echo "Installing MySQL is... FAILURE"
-        exit 1
-    fi
+    VALIDATE $? "MySQL"
 else
     echo "MySQL is already installed... SKIPPING"
 fi
-
-# dnf install mysql -y
-# if [ $? -eq 0 ]
-# then
-#     echo "Installing MySQL is... SUCCESS"
-# else
-#     echo "Installing MySQL is... FAILURE"
-#     exit 1
-# fi
 
 dnf list installed nginx
 if [ $? -ne 0 ]
 then
     echo "nginx is not installed... going to install"
     dnf install nginx -y
-    if [ $? -eq 0 ]
-    then
-        echo "Installing nginx is... SUCCESS"
-    else
-        echo "Installing nginx is... FAILURE"
-        exit 1
-    fi
+    VALIDATE $? "nginx"
 else
     echo "nginx is already installed... SKIPPING"
 fi
