@@ -39,7 +39,7 @@ dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo "MySQL is not installed... going to install" | tee -a $LOG_FILE
-    dnf install mysql -y
+    dnf install mysql -y &>>$LOG_FILE
     VALIDATE $? "MySQL"
 else
     echo -e "MySQL is already installed... $Y SKIPPING $N" | tee -a $LOG_FILE
@@ -49,7 +49,7 @@ dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo "nginx is not installed... going to install" | tee -a $LOG_FILE
-    dnf install nginx -y
+    dnf install nginx -y &>>$LOG_FILE
     VALIDATE $? "nginx"
 else
     echo -e "nginx is already installed... $Y SKIPPING $N" | tee -a $LOG_FILE
