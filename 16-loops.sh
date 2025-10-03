@@ -35,7 +35,7 @@ VALIDATE(){
 
 for package in ${PACKAGES[@]}
 do
-    dnf list installed mysql &>>$LOG_FILE
+    dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
     then
         echo "$package is not installed... going to install" | tee -a $LOG_FILE
