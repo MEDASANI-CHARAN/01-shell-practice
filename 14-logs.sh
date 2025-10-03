@@ -35,7 +35,7 @@ VALIDATE(){
 # 1. check the package alreay installed or not
 # 2. If the exit status is equal to "0", then skip
 # 3. If the exit status is not equal to "0", then install package
-dnf list installed mysql
+dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo "MySQL is not installed... going to install" | tee -a $LOG_FILE
@@ -45,7 +45,7 @@ else
     echo -e "MySQL is already installed... $Y SKIPPING $N" | tee -a $LOG_FILE
 fi
 
-dnf list installed nginx
+dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo "nginx is not installed... going to install" | tee -a $LOG_FILE
