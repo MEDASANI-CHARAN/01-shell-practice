@@ -45,7 +45,7 @@ else
     echo -e "MySQL is already installed... $Y SKIPPING $N" | tee -a $LOG_FILE
 fi
 
-dnf list installed nginx &>>$LOG_FILE
+dnf list installed nginx #&>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo "nginx is not installed... going to install" | tee -a $LOG_FILE
